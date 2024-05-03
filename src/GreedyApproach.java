@@ -54,6 +54,7 @@ public class GreedyApproach {
 
     public static void main(String[] args) {
         int k = 1;
+
         int[] passengers = {6, 8, 12,14};
         minWalkingDistance(passengers, k);
     }
