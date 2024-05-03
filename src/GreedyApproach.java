@@ -11,6 +11,7 @@ public class GreedyApproach {
         int walkingFloors = 0;//Total walked floors
         int[] stops = new int[maxStops];
         if (maxStops == passengers.length) {
+
             for (int i = 0; i < passengers.length; i++) {
                 stops[i] = passengers[i];
             }
