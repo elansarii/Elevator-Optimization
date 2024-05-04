@@ -16,7 +16,7 @@ public class GreedyApproach {
             for (int i = 0; i < passengers.length; i++) {
                 stops[i] = passengers[i];
             }
-            printResult(walkingFloors, stops, maxStops);//print results
+            printResult(walkingFloors, stops, maxStops); //print results
         }
         //if the max stops allowed is less than the number of passengers
         else {
