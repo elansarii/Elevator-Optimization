@@ -21,6 +21,7 @@ public class GreedyApproach {
         }
 
         //if the max stops allowed is less than the number of passengers
+        //if the max stops allowed is less than the number of passengers
         else {
             //go to the first passenger floor
             elevator = passengers[0];
@@ -31,14 +32,21 @@ public class GreedyApproach {
                 if (stopsUsed < maxStops){
                     //compare the two next passengers and choose the one the results in less walking distance
                     nextPassengerWalk = passengers[i] - elevator;
-                    afterNextPassengerWalk = passengers[i+1] - elevator;
-                    if (nextPassengerWalk < afterNextPassengerWalk) {
-                        elevator = passengers[i+1];
-                        walkingFloors += nextPassengerWalk;
-                        stops[stopsUsed] = elevator;
-                        stopsUsed++;
-                        i++;
-                    } else {
+                    if (i+1 < passengers.length) {
+                        afterNextPassengerWalk = passengers[i+1] - elevator;
+                        if (nextPassengerWalk < afterNextPassengerWalk) {
+                            elevator = passengers[i+1];
+                            walkingFloors += nextPassengerWalk;
+                            stops[stopsUsed] = elevator;
+                            stopsUsed++;
+                            i++;
+                        } else {
+                            elevator = passengers[i];
+                            stops[stopsUsed] = elevator;
+                            stopsUsed++;
+                        }
+                    }
+                    else{
                         elevator = passengers[i];
                         stops[stopsUsed] = elevator;
                         stopsUsed++;
