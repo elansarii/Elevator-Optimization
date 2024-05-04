@@ -9,8 +9,7 @@ public class GreedyApproach {
         int nextPassengerWalk; //Walked floors for the next passenger from the floor the elevator at
         int afterNextPassengerWalk;//Walked floors for the after next passenger from the floor the elevator at
         int walkingFloors = 0;//Total walked floors
-        int[] stops = new int[maxStops];
-
+        int[] stops = new int[maxStops];//Array to store the stops
 
         //if the max stops allowed is equal to the number of passengers deliver each one to their floor
         if (maxStops == passengers.length) {
@@ -19,8 +18,6 @@ public class GreedyApproach {
             }
             printResult(walkingFloors, stops, maxStops);//print results
         }
-
-        //if the max stops allowed is less than the number of passengers
         //if the max stops allowed is less than the number of passengers
         else {
             //go to the first passenger floor
@@ -29,13 +26,13 @@ public class GreedyApproach {
             stopsUsed++;
             //iterate on passengers until the max stops is reached
             for (int i = 1; i < passengers.length; i++) {
-                if (stopsUsed < maxStops){
+                if (stopsUsed < maxStops) {
                     //compare the two next passengers and choose the one the results in less walking distance
                     nextPassengerWalk = passengers[i] - elevator;
-                    if (i+1 < passengers.length) {
-                        afterNextPassengerWalk = passengers[i+1] - elevator;
+                    if (i + 1 < passengers.length) {
+                        afterNextPassengerWalk = passengers[i + 1] - elevator;
                         if (nextPassengerWalk < afterNextPassengerWalk) {
-                            elevator = passengers[i+1];
+                            elevator = passengers[i + 1];
                             walkingFloors += nextPassengerWalk;
                             stops[stopsUsed] = elevator;
                             stopsUsed++;
@@ -45,14 +42,12 @@ public class GreedyApproach {
                             stops[stopsUsed] = elevator;
                             stopsUsed++;
                         }
-                    }
-                    else{
+                    } else {
                         elevator = passengers[i];
                         stops[stopsUsed] = elevator;
                         stopsUsed++;
                     }
-                }
-                else{
+                } else {
                     nextPassengerWalk = passengers[i] - elevator;
                     walkingFloors += nextPassengerWalk;
                 }
@@ -70,8 +65,11 @@ public class GreedyApproach {
     }
 
     public static void main(String[] args) {
-        int k = 3;//max stops allowed
-        int[] passengers = {27,40,60,61};
-        minWalkingDistance(passengers, k);
+        int[] passengers = {27, 40, 60, 61};
+        //gives the minimum walking distance for each number of stops
+        for (int k = 1; k <= passengers.length; k++) {
+            minWalkingDistance(passengers, k);
+            System.out.println();
+        }
     }
 }
