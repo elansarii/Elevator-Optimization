@@ -65,6 +65,7 @@ public class GreedyApproach {
     }
 
     public static void main(String[] args) {
+        //test
         int[] passengers = {27, 40, 60, 61};
         //gives the minimum walking distance for each number of stops
         for (int k = 1; k <= passengers.length; k++) {
